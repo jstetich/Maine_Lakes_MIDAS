@@ -102,13 +102,13 @@ following attributes derived from the CB_Lakes data:
 *  name    (a Long Name that includes the Pond Name, teh MIDAS NUmber, and the Town Name)
 *  Longitude
 *  Latitude
-*  Name_1  (The Name pof hte Pond itself)
+*  Name_1  (The Name pof the Pond itself)
 *  Town
 *  MIDAS_Numb
 *  Elevation
 *  Notes
 
-Finally, we merged some polygons that share MIDAS numbers and are part of single
+We merged some polygons that share MIDAS numbers and are part of single
 lake basins. This involved the following steps:
 
 1.  Little Sebago Lake, MIDAS has two points in the original `KML` file, but
@@ -130,44 +130,5 @@ lake basins. This involved the following steps:
 *  CB_Lakes is point data, and includes all MIDAS lakes in the watershed, even 
    those that lack corresponding polygons.
 *  CB_Ponds_MIDAS_Final includes only those lakes for which we have polygons.
-   The missing ponds were either absorbed into otehr ponds or are tiny.  We
+   The missing ponds were either absorbed into other ponds or are tiny.  We
    lack monitoring data for all of them.
-
-## Generating a CSV File
-We exported the attribute table of "CB_Lakes" to "CB_Lakes.csv"  We then 
-edited that file (by hand) to remove the FID column, and revised the column
-names as follows
-
-*  ExtName
-*  Longitude
-*  Latitude
-*  Name
-*  Town
-*  MIDAS Number
-*  Elevation
-*  Notes
-*  Name Change
-
-Finally, we deleted records with duplicate MIDAS numbers, selecting
-The point that corresponds to the largest contiguous pond area and deleting
-others.  We edited the Notes field to indicate what we did.
-
-
-
-# Considerations for Further Data Organization
-The downloaded lakes data has essentially three types of data:
-1.  Lake identification, location, and Morphometry, which is lake specific and
-    time independent data.
-2.  Secchi depth, which is station specific (within lakes) and Date dependent.
-    (Includes a TIME field, apparently for QA purposes).
-3.  All other parameters, which are  lake, station, depth, and date dependent.
-
-However, we may want to analyse depth profiles seperately, since they are so
-important for understanding the physics of the lakes, and so important in terms
-of climate change impacts on lakes.
-
-So this suggests we want to reorganize the data into four tables, as follows:
-*  Morphometry
-*  Secchi
-*  Temp and DO
-*  All Other Observations

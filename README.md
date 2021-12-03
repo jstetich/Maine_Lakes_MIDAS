@@ -28,7 +28,7 @@ exporting the data to simpler data formats.  Her, we use flat `*.csv` files.
 
 ## Contents
 This archive contains downloaded `KML` files, code to extract data from those files,
-shapefiles containing the same data, files in several formats containig subsets of the 
+shapefiles containing the same data, files in several formats containing subsets of the 
 source data that pertain to the Casco Bay Watershed, and additional shapefiles that 
 (for the Casco Bay Watershed) identify features from the NHD with MIDAS
 codes.
